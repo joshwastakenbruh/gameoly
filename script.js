@@ -31,7 +31,6 @@ const games = [
     }
 ];
 
-// RAWG API Key - Du musst dir einen kostenlosen API Key holen von https://rawg.io/apidocs
 const API_KEY = '591001a77570441f95710e2ea2717870';
 
 async function fetchGameDetails(game) {
@@ -54,6 +53,7 @@ async function fetchGameDetails(game) {
 
 async function displayGames() {
     const gamesGrid = document.getElementById('games-grid');
+    gamesGrid.innerHTML = ''; // Leere das Grid zuerst
     
     for (const game of games) {
         try {
@@ -63,7 +63,6 @@ async function displayGames() {
             const gameCard = document.createElement('div');
             gameCard.className = 'game-card';
             
-            // Mache die ganze Karte klickbar, wenn eine URL vorhanden ist
             if (gameData.url) {
                 gameCard.style.cursor = 'pointer';
                 gameCard.onclick = () => window.open(gameData.url, '_blank');
@@ -83,5 +82,9 @@ async function displayGames() {
     }
 }
 
-// Lade die Spiele, wenn die Seite geladen ist
-document.addEventListener('DOMContentLoaded', displayGames); 
+// NUR EIN Event Listener
+document.addEventListener('DOMContentLoaded', async () => {
+    await displayGames();
+    const slotContainer = document.getElementById('slotMachine');
+    const slotMachine = new GameSlotMachine(slotContainer, games);
+}); 
