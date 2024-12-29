@@ -92,7 +92,6 @@ class GameSlotMachine {
                 this.isSpinning = false;
                 this.spinButton.disabled = false;
                 
-                alert(`Das nächste Spiel ist: ${winnerName}!`);
             }
         };
         
