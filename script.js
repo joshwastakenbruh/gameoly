@@ -106,6 +106,7 @@ const games = [
     { id: 'golf-it', type: 'rawg' },
     { id: 'cube-racer-2', type: 'rawg' },
     { id: 'make-way-4', type: 'rawg' },
+    { id: 'blobby-volley-2', type: 'rawg' },
     // Custom Spiele
     {
         id: 'OpenGuessr',
@@ -127,13 +128,6 @@ const games = [
         name: 'Hedgewars',
         background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2223810/capsule_616x353.jpg?t=1700249227',
         url: 'https://www.hedgewars.org/'
-    },
-    {
-        id: 'kniffel',
-        type: 'custom',
-        name: 'Kniffel',
-        background_image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNjHQCxfmO0WtIDyYlLKZre40BmDA3MjRNrA&s',
-        url: 'https://onlinespiele.schmidtspiele.de/?/home'
     },
     {
         id: 'curvefever',
