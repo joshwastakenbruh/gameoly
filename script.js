@@ -1,14 +1,17 @@
 // Liste deiner Spiele mit den RAWG API IDs und custom Spiele
 const games = [
     // RAWG Spiele
-    { id: 'grand-theft-auto-v', type: 'rawg' },
-    { id: 'the-witcher-3-wild-hunt', type: 'rawg' },
-    { id: 'portal-2', type: 'rawg' },
+    { id: 'mario-kart-8', type: 'rawg' },
+    { id: 'counter-strike-2-2', type: 'rawg' },
+    { id: 'fall-guys', type: 'rawg' },
+    { id: 'golf-it', type: 'rawg' },
+    { id: 'cube-racer-2', type: 'rawg' },
+    { id: 'kniffel-2-jetzt-wird-abgekniffelt', type: 'rawg' },
     // Custom Spiele
     {
-        id: 'geoguessr',
+        id: 'OpenGuessr',
         type: 'custom',
-        name: 'GeoGuessr',
+        name: 'OpenGuessr',
         background_image: 'https://iogames.lv/thumbs/openguessr-io_1.jpg',
         url: 'https://openguessr.com/'
     },
@@ -16,8 +19,15 @@ const games = [
         id: 'codenames',
         type: 'custom',
         name: 'Codenames Online',
-        background_image: 'https://czechgames.com/files/rules/codenames-rules-en.jpg',
-        url: 'https://codenames.game'
+        background_image: 'https://www.reich-der-spiele.de/wp-content/uploads/codenames.jpg',
+        url: 'https://codenames.game/'
+    },
+    {
+        id: 'hedgewars',
+        type: 'custom',
+        name: 'Hedgewars',
+        background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2223810/capsule_616x353.jpg?t=1700249227',
+        url: 'https://www.hedgewars.org/'
     }
 ];
 
