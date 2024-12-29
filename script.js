@@ -103,12 +103,10 @@ class GameSlotMachine {
 // Liste der Spiele
 const games = [
     // RAWG Spiele
-    { id: 'mario-kart-8', type: 'rawg' },
-    { id: 'counter-strike-2-2', type: 'rawg' },
     { id: 'fall-guys', type: 'rawg' },
     { id: 'golf-it', type: 'rawg' },
     { id: 'cube-racer-2', type: 'rawg' },
-    { id: 'kniffel-2-jetzt-wird-abgekniffelt', type: 'rawg' },
+    { id: 'make-way-4', type: 'rawg' },
     // Custom Spiele
     {
         id: 'OpenGuessr',
@@ -130,7 +128,29 @@ const games = [
         name: 'Hedgewars',
         background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2223810/capsule_616x353.jpg?t=1700249227',
         url: 'https://www.hedgewars.org/'
+    },
+    {
+        id: 'kniffel',
+        type: 'custom',
+        name: 'Kniffel',
+        background_image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNjHQCxfmO0WtIDyYlLKZre40BmDA3MjRNrA&s',
+        url: 'https://onlinespiele.schmidtspiele.de/?/home'
+    },
+    {
+        id: 'curvefever',
+        type: 'custom',
+        name: 'Curve Fever',
+        background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1133700/capsule_616x353.jpg?t=1577732112',
+        url: 'https://curvefever.pro/'
+    },
+    {
+        id: 'bombparty',
+        type: 'custom',
+        name: 'Bomb Party',
+        background_image: 'https://i.ytimg.com/vi/yJ6qNb0xVas/maxresdefault.jpg',
+        url: 'https://jklm.fun/KAWD'
     }
+
 ];
 
 const API_KEY = '591001a77570441f95710e2ea2717870';
