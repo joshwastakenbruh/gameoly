@@ -257,4 +257,21 @@ th {
     transform: scale(1.1);
     transition: transform 0.2s ease;
     border-color: #45a049;
+}
+
+.joker-label {
+    background-color: #FFD700;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.joker-label:hover {
+    background-color: #FFC800;
+    transform: scale(1.05);
+    transition: all 0.2s ease;
 } 
