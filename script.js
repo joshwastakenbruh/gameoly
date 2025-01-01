@@ -149,12 +149,25 @@ const gamesLists = {
         { id: 'rocket-league', type: 'rawg' },
         { id: 'move-or-die', type: 'rawg' },
         { id: 'speedrunners', type: 'rawg' },
+        { id: 'counter-strike-2-2', type: 'rawg' },
+        { id: 'golf-it', type: 'rawg' },
+        { id: 'fall-guys', type: 'rawg' },
+        { id: 'robot-roller-derby-disco-dodgeball', type: 'rawg' },
+        { id: 'brawlhalla', type: 'rawg' },
+        { id: 'league-of-legends', type: 'rawg' },
         {
-            id: 'skribbl',
+            id: 'hedgewars',
             type: 'custom',
-            name: 'Skribbl.io',
-            background_image: 'https://skribbl.io/res/thumbnail.png',
-            url: 'https://skribbl.io/'
+            name: 'Hedgewars',
+            background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2223810/capsule_616x353.jpg?t=1700249227',
+            url: 'https://www.hedgewars.org/'
+        },
+        {
+            id: 'codenames',
+            type: 'custom',
+            name: 'Codenames Online',
+            background_image: 'https://www.reich-der-spiele.de/wp-content/uploads/codenames.jpg',
+            url: 'https://codenames.game/'
         },
     ]
 };
