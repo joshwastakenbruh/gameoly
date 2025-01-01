@@ -99,52 +99,77 @@ class GameSlotMachine {
     }
 }
 
-// Liste der Spiele
-const games = [
-    // RAWG Spiele
-    { id: 'fall-guys', type: 'rawg' },
-    { id: 'golf-it', type: 'rawg' },
-    { id: 'cube-racer-2', type: 'rawg' },
-    { id: 'make-way-4', type: 'rawg' },
-    { id: 'blobby-volley-2', type: 'rawg' },
-    // Custom Spiele
-    {
-        id: 'OpenGuessr',
-        type: 'custom',
-        name: 'OpenGuessr',
-        background_image: 'https://iogames.lv/thumbs/openguessr-io_1.jpg',
-        url: 'https://openguessr.com/'
-    },
-    {
-        id: 'codenames',
-        type: 'custom',
-        name: 'Codenames Online',
-        background_image: 'https://www.reich-der-spiele.de/wp-content/uploads/codenames.jpg',
-        url: 'https://codenames.game/'
-    },
-    {
-        id: 'hedgewars',
-        type: 'custom',
-        name: 'Hedgewars',
-        background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2223810/capsule_616x353.jpg?t=1700249227',
-        url: 'https://www.hedgewars.org/'
-    },
-    {
-        id: 'curvefever',
-        type: 'custom',
-        name: 'Curve Fever',
-        background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1133700/capsule_616x353.jpg?t=1577732112',
-        url: 'https://curvefever.pro/'
-    },
-    {
-        id: 'bombparty',
-        type: 'custom',
-        name: 'Bomb Party',
-        background_image: 'https://i.ytimg.com/vi/yJ6qNb0xVas/maxresdefault.jpg',
-        url: 'https://jklm.fun/KAWD'
-    }
+// Spiele-Listen für verschiedene Olympiaden
+const gamesLists = {
+    '29.12.2024': [
+        // RAWG Spiele
+        { id: 'fall-guys', type: 'rawg' },
+        { id: 'golf-it', type: 'rawg' },
+        { id: 'cube-racer-2', type: 'rawg' },
+        { id: 'make-way-4', type: 'rawg' },
+        { id: 'blobby-volley-2', type: 'rawg' },
+        // Custom Spiele
+        {
+            id: 'OpenGuessr',
+            type: 'custom',
+            name: 'OpenGuessr',
+            background_image: 'https://iogames.lv/thumbs/openguessr-io_1.jpg',
+            url: 'https://openguessr.com/'
+        },
+        {
+            id: 'codenames',
+            type: 'custom',
+            name: 'Codenames Online',
+            background_image: 'https://www.reich-der-spiele.de/wp-content/uploads/codenames.jpg',
+            url: 'https://codenames.game/'
+        },
+        {
+            id: 'hedgewars',
+            type: 'custom',
+            name: 'Hedgewars',
+            background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2223810/capsule_616x353.jpg?t=1700249227',
+            url: 'https://www.hedgewars.org/'
+        },
+        {
+            id: 'curvefever',
+            type: 'custom',
+            name: 'Curve Fever',
+            background_image: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1133700/capsule_616x353.jpg?t=1577732112',
+            url: 'https://curvefever.pro/'
+        },
+        {
+            id: 'bombparty',
+            type: 'custom',
+            name: 'Bomb Party',
+            background_image: 'https://i.ytimg.com/vi/yJ6qNb0xVas/maxresdefault.jpg',
+            url: 'https://jklm.fun/KAWD'
+        }
+    ],
+    '02.01.2025': [
+        { id: 'rocket-league', type: 'rawg' },
+        { id: 'move-or-die', type: 'rawg' },
+        { id: 'speedrunners', type: 'rawg' },
+        {
+            id: 'skribbl',
+            type: 'custom',
+            name: 'Skribbl.io',
+            background_image: 'https://skribbl.io/res/thumbnail.png',
+            url: 'https://skribbl.io/'
+        },
+    ]
+};
 
-];
+// Bestimme aktuelle Spiele-Liste basierend auf der Seite
+function getCurrentGames() {
+    const path = window.location.pathname;
+    if (path.includes('02-01-2025')) {
+        return gamesLists['02.01.2025'];
+    }
+    return gamesLists['29.12.2024']; // default/index
+}
+
+// Aktuelle Spiele-Liste
+const currentGames = getCurrentGames();
 
 const API_KEY = '591001a77570441f95710e2ea2717870';
 
@@ -168,9 +193,10 @@ async function fetchGameDetails(game) {
 
 async function displayGames() {
     const gamesGrid = document.getElementById('games-grid');
+    if (!gamesGrid) return; // Early return wenn grid nicht gefunden
     gamesGrid.innerHTML = '';
     
-    for (const game of games) {
+    for (const game of currentGames) {
         try {
             const gameData = await fetchGameDetails(game);
             if (!gameData) continue;
@@ -201,5 +227,7 @@ async function displayGames() {
 document.addEventListener('DOMContentLoaded', async () => {
     await displayGames();
     const slotContainer = document.getElementById('slotMachine');
-    const slotMachine = new GameSlotMachine(slotContainer, games);
+    if (slotContainer) {
+        new GameSlotMachine(slotContainer, currentGames);
+    }
 }); 

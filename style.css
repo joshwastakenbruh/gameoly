@@ -274,4 +274,48 @@ th {
     background-color: #FFC800;
     transform: scale(1.05);
     transition: all 0.2s ease;
+}
+
+.olympics-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.tab-button {
+    background-color: #363636;
+    color: #e0e0e0;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.tab-button:hover {
+    background-color: #4CAF50;
+}
+
+.tab-button.active {
+    background-color: #4CAF50;
+    color: white;
+    pointer-events: none;
+}
+
+.olympics-content {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 } 
